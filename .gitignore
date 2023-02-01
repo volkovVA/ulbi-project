@@ -1,2 +1,6 @@
-node_modules
-build
+.idea/
+.vscode
+*.tsbuildinfo
+node_modules/
+package-lock.json
+/build/
