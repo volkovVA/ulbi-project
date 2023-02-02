@@ -1,5 +1,5 @@
 import React, {FC, useMemo, useState} from 'react';
-import {LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext} from './ThemeContext';
+import {LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext} from '../lib/ThemeContext';
 
 // Type-guard  для проверки, чтобы потом не оказалось, что в теме лежит не "light/dark", а, например, число
 // Решение из комментов 1 блок 7 видео
