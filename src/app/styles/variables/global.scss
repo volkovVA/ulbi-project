@@ -1,6 +1,5 @@
 // CSS переменные нативное решение, почти все браузеры поддерживают css переменные
 // Их можно изменять из JS + дебажить в браузере удобнее
-// not SCSS variables!!!
 
 :root {
   --font-family-main: Arial, Helvetica, sans-serif;
@@ -12,4 +11,6 @@
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  --navbar-height: 50px;
 }
