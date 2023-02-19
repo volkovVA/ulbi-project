@@ -16,6 +16,7 @@ export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPlugi
         // С  помощью плагина можно прокидывать глобальные переменные
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
     ]
 }

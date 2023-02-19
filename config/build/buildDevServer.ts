@@ -7,6 +7,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         open: true,
         // Позволяет загружать страницы не с главной, минуя 400 ошибку
         historyApiFallback: true,
+        hot: true,
     }
 }
 
