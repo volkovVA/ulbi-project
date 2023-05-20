@@ -9,7 +9,6 @@ interface UseThemeResult {
 export function useTheme(): UseThemeResult {
     const { theme, setTheme } = useContext(ThemeContext);
 
-    // Решение из комментов 1 блок 7 видео
     const toggleTheme = () => {
         setTheme((theme: Theme) => {
             const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
