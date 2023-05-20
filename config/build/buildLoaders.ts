@@ -8,9 +8,6 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    // DEPRECATED for v5: please consider migrating to asset modules
-    // https://webpack.js.org/guides/asset-modules/
-    // Также для svg
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
         use: [
@@ -23,9 +20,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
-            // Creates `style` nodes from JS strings
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            // Translates CSS into CommonJS
             {
                 loader: 'css-loader',
                 options: {
@@ -37,12 +32,10 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                     },
                 },
             },
-            // Compiles Sass to CSS
             'sass-loader',
         ],
     };
 
-    // Если не используем ts - нужен babel-loader
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',

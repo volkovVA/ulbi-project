@@ -13,7 +13,6 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
         }),
-        // С  помощью плагина можно прокидывать глобальные переменные
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),

@@ -17,6 +17,3 @@ declare module '*.svg' {
 }
 
 declare const __IS_DEV__: boolean;
-
-// Можно вместо global.d.ts, установить пакет react-scripts и
-// добавить файл react-app-env.d.ts с содержимым /// <reference types="react-scripts" />

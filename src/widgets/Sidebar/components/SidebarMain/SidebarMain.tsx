@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { FC, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
