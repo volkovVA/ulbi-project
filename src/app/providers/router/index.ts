@@ -1,5 +1,5 @@
-import AppRouter from "./component/AppRouter";
+import AppRouter from './component/AppRouter';
 
 export {
-    AppRouter
-}
+    AppRouter,
+};
