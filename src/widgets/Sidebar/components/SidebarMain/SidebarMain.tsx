@@ -1,8 +1,8 @@
-/* eslint-disable i18next/no-literal-string */
 import { FC, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/components/Button/Button';
 import cls from './SidebarMain.module.scss';
 
 interface SidebarMainProps {
@@ -23,10 +23,15 @@ export const SidebarMain: FC<SidebarMainProps> = ({ className }) => {
                 { [cls.collapsed]: collapsed },
                 [className],
             )}
+            data-testid="sidebar-main"
         >
-            <button type="button" onClick={onToggle}>
+            <Button
+                onClick={onToggle}
+                data-testid="sidebar-toggle"
+            // eslint-disable-next-line i18next/no-literal-string
+            >
                 toggle
-            </button>
+            </Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher />

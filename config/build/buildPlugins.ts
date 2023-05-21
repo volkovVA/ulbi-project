@@ -19,7 +19,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         }),
         new webpack.HotModuleReplacementPlugin(),
         new BundleAnalyzerPlugin({
-            analyzerMode: process.env.STATS as 'server' || 'disabled'
+            analyzerMode: process.env.STATS as 'server' || 'disabled',
         }),
     ];
 }
