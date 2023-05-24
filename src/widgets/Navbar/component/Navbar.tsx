@@ -7,6 +7,8 @@ interface NavbarProps {
     className?: string;
 }
 
+// TODO: Добавить перевод кнопок
+
 export const Navbar = ({ className }: NavbarProps) => (
     <div className={classNames(cls.navbar, {}, [className])}>
         <div className={cls.links}>

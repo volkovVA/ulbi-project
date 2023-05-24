@@ -11,11 +11,12 @@
         "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
         "lint:scss": "npx stylelint \"**/*.scss\"",
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-        "unit": "jest --config ./config/jest/jest.config.ts",
         "analyze:prod": "STATS=server webpack --env mode=production",
         "analyze:dev": "STATS=server webpack --env mode=development",
         "storybook": "storybook dev -p 6006 -c ./config/storybook",
-        "build-storybook": "storybook build -c ./config/storybook"
+        "storybook:build": "storybook build -c ./config/storybook",
+        "test:unit": "jest --config ./config/jest/jest.config.ts",
+        "test:chromatic": "npx chromatic --project-token=chpt_ba64c5b27bbe5b3"
     },
     "keywords": [],
     "author": "",
@@ -47,6 +48,7 @@
         "@typescript-eslint/eslint-plugin": "^5.12.1",
         "@typescript-eslint/parser": "^5.12.1",
         "babel-loader": "^8.2.3",
+        "chromatic": "^6.17.4",
         "css-loader": "^6.6.0",
         "eslint": "^8.10.0",
         "eslint-config-airbnb": "^19.0.4",
