@@ -14,9 +14,10 @@
         "analyze:prod": "STATS=server webpack --env mode=production",
         "analyze:dev": "STATS=server webpack --env mode=development",
         "storybook": "storybook dev -p 6006 -c ./config/storybook",
-        "storybook:build": "storybook build -c ./config/storybook",
+        "build-storybook": "storybook build -c ./config/storybook",
         "test:unit": "jest --config ./config/jest/jest.config.ts",
-        "test:chromatic": "npx chromatic --project-token=chpt_ba64c5b27bbe5b3"
+        "test:chromatic": "npx chromatic --project-token=chpt_ba64c5b27bbe5b3",
+        "chromatic": "chromatic --exit-zero-on-changes"
     },
     "keywords": [],
     "author": "",
