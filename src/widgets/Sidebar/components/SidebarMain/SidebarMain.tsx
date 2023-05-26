@@ -2,8 +2,12 @@ import { FC, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/components/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from 'shared/components/Button/Button';
 import { useTranslation } from 'react-i18next';
+import { AppLink, AppLinkTheme } from 'shared/components/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import AboutIcon from 'shared/assets/icons/about.svg';
+import MainIcon from 'shared/assets/icons/main.svg';
 import cls from './SidebarMain.module.scss';
 
 interface SidebarMainProps {
@@ -29,13 +33,35 @@ export const SidebarMain: FC<SidebarMainProps> = ({ className }) => {
         >
             <Button
                 onClick={onToggle}
+                className={cls.collapsedBtn}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                square
+                size={ButtonSize.XL}
                 data-testid="sidebar-toggle"
             >
-                {t('Переключить')}
+                {collapsed ? '>' : '<'}
             </Button>
+            <div className={cls.items}>
+                <AppLink
+                    to={RoutePath.main}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.item}
+                >
+                    <MainIcon className={cls.icon} />
+                    <span className={cls.link}>{t('Главная')}</span>
+                </AppLink>
+                <AppLink
+                    to={RoutePath.about}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.item}
+                >
+                    <AboutIcon className={cls.icon} />
+                    <span className={cls.link}>{t('О сайте')}</span>
+                </AppLink>
+            </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher />
+                <LangSwitcher short={collapsed} />
             </div>
         </div>
     );
