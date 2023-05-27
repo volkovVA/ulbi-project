@@ -1,0 +1,35 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+}
+
+.content {
+    max-width: 40%;
+    padding: 20px;
+    background-color: var(--bg-color);
+    border-radius: 4px;
+    transition: 0.3s transform;
+    transform: scale(0.5);
+}
+
+.opened {
+    z-index: var(--modal-z-index);
+    visibility: visible;
+    opacity: 1;
+
+    .content {
+        transform: scale(1);
+    }
+}

@@ -5,6 +5,10 @@ import {
     ThemeContext,
 } from '../lib/ThemeContext';
 
+interface ThemeProviderProps {
+    initialTheme?: Theme;
+}
+
 // Type-guard  для проверки, чтобы потом не оказалось,
 // что в теме лежит не "light/dark", а, например, число
 const isTheme = (value: any): value is Theme => typeof value === 'string'
@@ -15,8 +19,13 @@ const getDefaultTheme = (): Theme => {
     return isTheme(defaultTheme) ? defaultTheme : Theme.LIGHT;
 };
 
-const ThemeProvider: FC = ({ children }) => {
-    const [theme, setTheme] = useState<Theme>(getDefaultTheme);
+const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+    const {
+        initialTheme,
+        children,
+    } = props;
+
+    const [theme, setTheme] = useState<Theme>(initialTheme || getDefaultTheme);
 
     const defaultProps = useMemo(
         () => ({
