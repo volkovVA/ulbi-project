@@ -1,4 +1,6 @@
-import React, { FC, useMemo, useState } from 'react';
+import {
+    FC, useMemo, useState, useEffect,
+} from 'react';
 import {
     LOCAL_STORAGE_THEME_KEY,
     Theme,
@@ -34,6 +36,8 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
         }),
         [theme],
     );
+
+    document.body.className = theme;
 
     return (
         <ThemeContext.Provider value={defaultProps}>

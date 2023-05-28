@@ -12,14 +12,22 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 type Story = StoryObj<typeof Modal>;
 
-// TODO: Добавить темную тему
-
-export const Primary: Story = {
+export const ModalLight: Story = {
     args: {
         isOpen: true,
         children: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, numquam!',
     },
     decorators: [
         ThemeDecorator(Theme.LIGHT),
+    ],
+};
+
+export const ModakDark: Story = {
+    args: {
+        isOpen: true,
+        children: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, numquam!',
+    },
+    decorators: [
+        ThemeDecorator(Theme.DARK),
     ],
 };
