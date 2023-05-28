@@ -4,10 +4,11 @@ import {
     MouseEvent,
     useEffect,
     useCallback,
+    useState,
+    useRef,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/components/Portal/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -25,10 +26,13 @@ export const Modal: FC<ModalProps> = (props) => {
         onCLose,
     } = props;
 
-    const { theme } = useTheme();
+    const [isMounted, setIsMounted] = useState(false);
+    const [isOpening, setIsOpening] = useState(false);
+    const timerRef = useRef(null);
 
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
+        [cls.opened]: isOpening,
     };
 
     const closeHandler = useCallback(() => {
@@ -49,13 +53,23 @@ export const Modal: FC<ModalProps> = (props) => {
 
     useEffect(() => {
         if (isOpen) {
+            setIsMounted(true);
+            timerRef.current = setTimeout(() => {
+                setIsOpening(true);
+            }, 0);
             window.addEventListener('keydown', onKeyDown);
         }
 
         return () => {
+            setIsOpening(false);
+            clearTimeout(timerRef.current);
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
+
+    if (!isMounted) {
+        return null;
+    }
 
     return (
         <Portal>

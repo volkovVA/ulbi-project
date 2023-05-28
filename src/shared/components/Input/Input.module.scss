@@ -1,0 +1,17 @@
+.inputWrapper {
+    display: flex;
+}
+
+.placeholder {
+    margin-right: 5px;
+}
+
+.input {
+    width: 100%;
+    border: none;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
+}
