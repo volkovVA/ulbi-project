@@ -12,13 +12,15 @@
         "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
         "lint:scss": "npx stylelint \"**/*.scss\"",
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
+        "lint:typecheck": "tsc --project ./tsconfig.json --noEmit",
         "analyze:prod": "STATS=server webpack --env mode=production",
         "analyze:dev": "STATS=server webpack --env mode=development",
         "storybook": "storybook dev -p 6006 -c ./config/storybook",
         "build-storybook": "storybook build -c ./config/storybook",
         "test:unit": "jest --config ./config/jest/jest.config.ts",
         "test:chromatic": "npx chromatic --project-token=chpt_ba64c5b27bbe5b3",
-        "chromatic": "chromatic --exit-zero-on-changes"
+        "chromatic": "chromatic --exit-zero-on-changes",
+        "prepare": "husky install"
     },
     "keywords": [],
     "author": "",
@@ -79,7 +81,8 @@
         "webpack": "5.69.1",
         "webpack-bundle-analyzer": "^4.5.0",
         "webpack-cli": "^4.9.2",
-        "webpack-dev-server": "^4.7.4"
+        "webpack-dev-server": "^4.7.4",
+        "husky": "^8.0.0"
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.8.0",
